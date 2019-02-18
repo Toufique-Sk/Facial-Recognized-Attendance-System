@@ -1,2 +1,2 @@
 # Facial-Recognized-Attendance-System
-Final Year project
+Final Year Project
