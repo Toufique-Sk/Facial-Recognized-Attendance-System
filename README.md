@@ -11,4 +11,4 @@ In this repo we have three .py files:
                                       1. face_dataset.py
                                       2. training.py
                                       3. face_recognition.py
-                                      sulagna
+                                      
