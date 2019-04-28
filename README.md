@@ -1,8 +1,8 @@
 # HOW TO RUN:
 
-Step 1: You first need to get all the dependencies so fir run " pip install -r requirements.txt "
+Step 1: You first need to get all the dependencies so first run " pip install -r requirements.txt "
 
-Step 2: You need to  have a mongodb installed in your PC and mongoDB local surver running
+Step 2: You need to  have a mongodb installed in your PC and mongoDB local surver running (run "mongod" in cmd) 
 
 Step 3: Run dataset.py and create some datasets
 
@@ -23,4 +23,6 @@ Final Year Project:
 
 *Description:*
             In colleges and school there is paper based attendance which is time comsuming, if multiple Face Detection and Recognition is  implemented for taking attandance then we can buy more time for Knowledge gaining (:P who does that).
+            
+Best thing is it can take multiple attandence at a time.
           
