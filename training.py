@@ -10,12 +10,10 @@ def assure_path_exists(path):
         os.makedirs(dir)
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-
 detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
 
 def getImagesAndLabels(path):
-
-   
+    
     imagePaths = [os.path.join(path,f) for f in os.listdir(path)] 
     
     

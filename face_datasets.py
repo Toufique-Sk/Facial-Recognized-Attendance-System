@@ -5,14 +5,14 @@ from pymongo import MongoClient
 
 #creating and connecting database-- mongodb
 client= MongoClient()
-database= client.Attendancesys
+database= client.SampleDatabase
 
 face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 #directory checking and creating
 def assure_path_exists(path):
     dir = os.path.dirname(path)
-    print dir
+    print (dir)
     if not os.path.exists(dir):
         os.makedirs(dir)
 
@@ -20,12 +20,16 @@ def count_no_of_image():
     path, dirs, files = next(os.walk("dataset/"))
     file_count = len(files)
     return file_count
-print "Enter Roll No.: "
+
+print ("Enter Department Name:")
+dep_Name=raw_input()
+print ("Enter Roll No.: ")
 face_id=input()
-print "Enter Name: "
+print ("Enter Name: ")
 name=raw_input()
 
-dictid={"_id":face_id, "Name":name}
+
+dictid={"_id":face_id, "Name":name, "Department": dep_Name}
 database.RecogData.insert_one(dictid)
 
 count = count_no_of_image()
