@@ -8,18 +8,16 @@ def assure_path_exists(path):
     dir = os.path.dirname(path)
     if not os.path.exists(dir):
         os.makedirs(dir)
+        return (str(dir)+" created")
+    return (str(dir)+" exist")
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
+detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 def getImagesAndLabels(path):
-    
+
     imagePaths = [os.path.join(path,f) for f in os.listdir(path)] 
-    
-    
     faceSamples=[]
-    
-    
     ids = []
 
     
@@ -47,7 +45,7 @@ print "Training.........."
 recognizer.train(faces, np.array(ids))
 print "TRAINED"
 
-assure_path_exists('trainer/')
+forTest=assure_path_exists('trainer/')
 recognizer.save('trainer/trainer.yml')
 print "Model saved"
 print faces[0][1][0]

@@ -5,21 +5,24 @@ from pymongo import MongoClient
 
 #creating and connecting database-- mongodb
 client= MongoClient()
-database= client.SampleDatabase
+database= client.MarkOne
 
 face_detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 #directory checking and creating
 def assure_path_exists(path):
     dir = os.path.dirname(path)
-    print (dir)
     if not os.path.exists(dir):
         os.makedirs(dir)
+
+        return (str(dir)+" created")
+    return (str(dir)+" exist")
 
 def count_no_of_image():
     path, dirs, files = next(os.walk("dataset/"))
     file_count = len(files)
     return file_count
+    
 
 print ("Enter Department Name:")
 dep_Name=raw_input()
@@ -36,7 +39,7 @@ count = count_no_of_image()
 count1=count
 
 vid_cam = cv2.VideoCapture(0)
-assure_path_exists("dataset/")
+forTest=assure_path_exists("dataset/")
 
 while(True):
 
@@ -48,7 +51,7 @@ while(True):
         
         count += 1
 
-        cv2.imwrite("dataset/User."+str(face_id) + '.' + str(count) + ".jpg", gray[y:y+h,x:x+w])
+        cv2.imwrite("dataset/"+name+"."+str(face_id) + '.' + str(count) + ".jpg", gray[y:y+h,x:x+w])
     cv2.imshow('frame', image_frame)
     if cv2.waitKey(100) & 0xFF == ord('q'):
         break

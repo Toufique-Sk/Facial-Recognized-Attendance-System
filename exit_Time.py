@@ -8,7 +8,7 @@ import pandas as pd
 
 #connecting to database-- mongodb
 client= MongoClient()
-database= client.SampleDatabase
+database= client.MarkOne
 
 def getcurrentDateTime():
     datetime.datetime.now()
